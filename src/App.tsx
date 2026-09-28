@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef } from "react";
 
 const DESKTOP_SPEED = { x: 235, y: 180, rotation: 65 };
@@ -36,7 +34,7 @@ const BEAVER_HULL = [
   [0.0236, 0.6266],
 ] as const;
 
-export default function Home() {
+export default function App() {
   const stageRef = useRef<HTMLElement>(null);
   const beaverRef = useRef<HTMLDivElement>(null);
 
@@ -198,9 +196,11 @@ export default function Home() {
       aria-label="A beaver in a swim ring bouncing around the screen"
     >
       <div ref={beaverRef} className="beaver" aria-hidden="true">
-        {/* A raw image keeps the collision hull aligned to the source pixels. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/beaver.png" alt="" draggable={false} />
+        <img
+          src={`${import.meta.env.BASE_URL}beaver.png`}
+          alt=""
+          draggable={false}
+        />
       </div>
     </main>
   );
